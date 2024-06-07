@@ -1,2 +1,5 @@
 /.idea/
 /out/
+db/doctores.csv
+db/pacientes.csv
+db/citas.csv
