@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-jar
-          path: Evidencia-final/target/*.jar
+          path: target/*.jar
 
