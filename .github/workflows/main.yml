@@ -1,0 +1,39 @@
+name: Build JAR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: master   # Cambia "main" a "master" para asegurarte de que estás en el branch correcto
+
+      - name: List directory contents
+        run: ls -la
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '22'
+          distribution: 'adopt'
+
+      - name: Build with Maven
+        run: |
+          javac Main.java   # Cambia "main.java" a "Main.java" para reflejar el nombre correcto del archivo
+
+      - name: Create JAR file
+        run: jar cfe Evidencia-final.jar Main *.class
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-jar
+          path: Evidencia-final.jar
+
